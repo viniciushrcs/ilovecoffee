@@ -15,7 +15,7 @@ export class CoffeesController {
 
   @Get()
   findAll() {
-    return 'This route will return all coffees';
+    return this.coffeesservice.findAll();
   }
 
   @Get(':id')
