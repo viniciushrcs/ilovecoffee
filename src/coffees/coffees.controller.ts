@@ -7,11 +7,11 @@ import {
   Patch,
   Delete,
 } from '@nestjs/common';
-import { CoffeeService } from './coffee.service';
+import { CoffeesService } from './coffees.service';
 
 @Controller('coffees')
 export class CoffeesController {
-  constructor(private readonly coffeeService: CoffeeService) {}
+  constructor(private readonly coffeesservice: CoffeesService) {}
 
   @Get()
   findAll() {
@@ -20,21 +20,21 @@ export class CoffeesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.coffeeService.findOne(id);
+    return this.coffeesservice.findOne(id);
   }
 
   @Post()
   create(@Body() body: any) {
-    return this.coffeeService.create(body);
+    return this.coffeesservice.create(body);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() body) {
-    return this.coffeeService.update(id, body);
+    return this.coffeesservice.update(id, body);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.coffeeService.remove(id);
+    return this.coffeesservice.remove(id);
   }
 }
